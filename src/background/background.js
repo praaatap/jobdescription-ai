@@ -71,6 +71,7 @@ function extractJobDescription() {
   else if (hostname.includes('naukri')) siteSelectors = selectors.naukri;
 
   try {
+    
     const titleEl = document.querySelector(siteSelectors.title);
     const companyEl = document.querySelector(siteSelectors.company);
     const descEl = document.querySelector(siteSelectors.description);
@@ -86,6 +87,7 @@ function extractJobDescription() {
 }
 
 // Update the createStructuredPrompt function in background.js:
+//working
 
 function createStructuredPrompt(resumeText, jobDescText) {
   return `You are an expert ATS and career coach. Analyze this resume against the job description and provide a recommendation on whether the candidate should apply.

@@ -1,0 +1,44 @@
+name: Build and Release Extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    permissions:      # <--- Fixes the "Resource not accessible" error
+      contents: write 
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build extension
+        run: npm run build
+
+      - name: Create ZIP archive
+        run: |
+          cd dist
+          zip -r ../resume-analyzer-pro-${{ github.ref_name }}.zip .
+          cd ..
+
+      # 👇 REPLACED OLD STEPS WITH THIS NEW ONE
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: resume-analyzer-pro-${{ github.ref_name }}.zip
+          generate_release_notes: true
+          draft: false
+          prerelease: false

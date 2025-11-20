@@ -34,7 +34,6 @@ function App() {
 
   const isExtension = typeof chrome !== "undefined" && chrome.runtime && chrome.runtime.id;
 
-  // Auto theme detection
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     
