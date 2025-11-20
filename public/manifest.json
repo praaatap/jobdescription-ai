@@ -1,14 +1,18 @@
 {
   "manifest_version": 3,
-  "name": "Job Description AI",
-  "version": "1.0.0",
+  "name": "Resume Analyzer Pro",
+  "version": "2.0.0",
+  "description": "AI-powered resume analyzer with auto job extraction",
   "permissions": [
-    "storage", 
-    "activeTab", 
-    "scripting"
+    "storage",
+    "activeTab",
+    "scripting",
+    "contextMenus"
   ],
   "host_permissions": [
-    "https://generativelanguage.googleapis.com/"
+    "https://generativelanguage.googleapis.com/*",
+    "https://*/*",
+    "http://*/*"
   ],
   "background": {
     "service_worker": "background.js",
@@ -17,5 +21,17 @@
   "action": {
     "default_popup": "index.html",
     "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
   }
 }
