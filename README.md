@@ -1,4 +1,5 @@
-# 📄 Resume Analyzer Pro — AI Browser Extension  
+# <img width="48" height="48" alt="image" src="https://github.com/user-attachments/assets/8d2d785e-2d31-4aaa-a8de-698bb49178cc" />       Resume Analyzer Pro — AI Browser Extension   
+
 
 <img width="892" height="1027" alt="image" src="https://github.com/user-attachments/assets/04764ead-933b-49dc-9191-49b8b49e27de" />
 <img width="880" height="1044" alt="image" src="https://github.com/user-attachments/assets/3b0a3c4f-4d21-4ba6-9105-76f861490f29" />
