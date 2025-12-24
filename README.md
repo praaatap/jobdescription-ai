@@ -1,189 +1,124 @@
-# <img width="48" height="48" alt="image" src="https://github.com/user-attachments/assets/8d2d785e-2d31-4aaa-a8de-698bb49178cc" />       Resume Analyzer Pro — AI Browser Extension   
+# JobFit AI - Resume Analyzer Chrome Extension
 
+AI-powered Chrome extension that analyzes your resume against job descriptions using Google Gemini AI.
 
-<img width="892" height="1027" alt="image" src="https://github.com/user-attachments/assets/04764ead-933b-49dc-9191-49b8b49e27de" />
-<img width="880" height="1044" alt="image" src="https://github.com/user-attachments/assets/3b0a3c4f-4d21-4ba6-9105-76f861490f29" />
-<img width="882" height="1039" alt="image" src="https://github.com/user-attachments/assets/5ad4eda5-906a-45a8-96b9-73a6a8d6d491" />
-<img width="892" height="1027" alt="image" src="https://github.com/user-attachments/assets/67f6df65-65f0-46d6-9d64-2e18c40285b4" />
+## Features
 
----
+- 📄 **Resume Upload** - Upload your PDF resume once, it's saved for all analyses
+- 🔍 **Job Extraction** - Extract job descriptions from any job posting page with one click
+- 🎯 **Match Analysis** - Get a detailed match score and recommendations
+- 💪 **Strengths & Improvements** - See what makes you a great fit and what to work on
+- 🔑 **Missing Keywords** - Find keywords to add to your resume for ATS optimization
+- 💼 **Interview Tips** - Get personalized interview preparation tips
+- ✉️ **Cover Letter Generator** - Generate tailored cover letters for each application
+- 📊 **Job History** - Track all your analyzed jobs and their statuses
 
-## ✨ Table of Contents
-- [Project Introduction](#project-introduction)
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Quick User Installation](#quick-user-installation)
-  - [Setup Guide](#setup-guide)
-  - [Usage Instructions](#usage-instructions)
-- [Developer Setup](#developer-setup)
-  - [Project Structure](#project-structure)
-  - [Local Build Instructions](#local-build-instructions)
-- [How It Works](#how-it-works)
-- [Security & Privacy](#security--privacy)
-- [FAQ / Troubleshooting](#faq--troubleshooting)
-- [Roadmap](#roadmap)
-- [Credits](#credits)
-- [Contributing](#contributing)
-- [License](#license)
+## Installation
 
----
+### From Chrome Web Store
+1. Visit the [Chrome Web Store listing](#) (coming soon)
+2. Click "Add to Chrome"
+3. Follow the prompts to install
 
-## 🏁 Project Introduction
-**Resume Analyzer Pro** is a modern AI-powered job–resume matching extension.  
-Upload your resume once → extract job data automatically → get a full ATS-style analysis instantly.
+### Manual Installation (Developer Mode)
+1. Download or clone this repository
+2. Run `npm install` and `npm run build`
+3. Open Chrome and go to `chrome://extensions/`
+4. Enable "Developer mode" (toggle in top right)
+5. Click "Load unpacked"
+6. Select the `dist` folder from this project
 
-Perfect for:
-- Job seekers  
-- Students applying for internships  
-- Professionals optimizing resumes  
-- Recruiters and hiring teams  
+## Setup
 
-**Stop guessing. Start applying smarter.**
+1. Get a free Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Click the JobFit AI extension icon
+3. Go to Settings tab
+4. Paste your API key and click Save
 
----
+## How to Use
 
-## 🚀 Features
+1. **Upload Resume**: Click the extension icon → Upload your resume PDF
+2. **Visit a Job Posting**: Navigate to any job page (LinkedIn, Indeed, etc.)
+3. **Extract & Analyze**: Click "Extract from Current Page" or paste job description manually
+4. **Review Results**: See your match score, strengths, improvements, and tips
+5. **Generate Cover Letter**: Go to Cover Letter tab for a tailored letter
 
-### 🧠 AI Job Match (Gemini-Powered)
-- Full AI analysis using **Google Gemini**
-- Produces:  
-  ✔ Match Score (0–100)  
-  ✔ Strongly Apply / Apply / Consider / Not Recommended  
-  ✔ Resume Strengths  
-  ✔ Improvements  
-  ✔ ATS Keyword Gaps  
-  ✔ Warnings & Quantification Tips  
+## Tech Stack
 
----
+- **Frontend**: React 19, TypeScript, CSS Modules
+- **PDF Processing**: PDF.js
+- **AI**: Google Gemini 1.5 Flash
+- **Build**: Vite
+- **Extension**: Chrome Manifest V3
 
-### 📝 Resume Strengths & Weaknesses
-- Extracted insights tailored to each job
-- Keyword gap analysis for ATS optimization
-- Actionable performance-oriented suggestions
+## Publishing to Chrome Web Store
 
----
+1. Create a [Chrome Web Store Developer account](https://chrome.google.com/webstore/devconsole/) ($5 one-time fee)
+2. Go to the Developer Dashboard
+3. Click "New Item"
+4. Upload `jobfit-ai-extension.zip`
+5. Fill in the store listing:
+   - **Name**: JobFit AI - Resume Analyzer
+   - **Description**: See below
+   - **Category**: Productivity
+   - **Screenshots**: Take screenshots of the extension in action
+   - **Icon**: Use the icon from `/public/icon128.png`
+6. Submit for review
 
-### 💼 One-Click Job Extraction
-- Extracts job data from:
-  - LinkedIn  
-  - Indeed  
-  - Naukri  
-  - Any generic job page  
-- Context menu: **"🎯 Analyze This Job"**  
-- Auto-fills job title, company, and description
+### Store Description
 
----
+```
+JobFit AI analyzes your resume against job descriptions using AI to help you land your dream job.
 
-### 📊 Smart Job History
-- Tracks all your past analyses
-- Manage status pipeline:
-  - Pending → Applied → Interview → Rejected  
-- Works like a built-in job tracker
+🎯 FEATURES:
+• Match Score - See how well your resume matches the job
+• Strengths Analysis - Know what makes you stand out
+• Improvement Tips - Get actionable suggestions
+• Missing Keywords - Optimize for ATS systems
+• Interview Prep - Get personalized interview tips
+• Cover Letter - Generate tailored cover letters
 
----
+📋 HOW IT WORKS:
+1. Upload your resume (PDF)
+2. Visit any job posting
+3. Click "Extract" to analyze
+4. Get instant AI-powered insights
 
-### ✨ Elegant UI
-- Glassmorphism-inspired modern UI
-- 3-tab layout: Your Job • History • Settings  
-- Auto + Manual Dark/Light mode  
+🔒 PRIVACY:
+• Your resume is stored locally in your browser
+• Resume and job data sent only to Google Gemini for analysis
+• No third-party data sharing
 
----
+💡 REQUIRES:
+• Free Google Gemini API key (get it at aistudio.google.com)
 
-## 🚚 Getting Started
+Perfect for job seekers who want to:
+✓ Tailor their resume to each job
+✓ Identify skill gaps
+✓ Prepare for interviews
+✓ Write compelling cover letters
+```
 
-## 📦 Quick User Installation
-1. Download latest build from Releases  
-2. Extract the ZIP  
-3. Go to chrome://extensions  
-4. Enable Developer mode  
-5. Load unpacked → select extracted folder  
+## Development
 
----
+```bash
+# Install dependencies
+npm install
 
-## ⚡ Setup Guide
+# Start dev server
+npm run dev
 
-### 1. Upload Your Resume
-- Click extension → Your Job  
-- Upload PDF resume  
+# Build for production
+npm run build
 
-### 2. Add Gemini API Key
-- Get key from Google AI Studio  
-- Paste inside Settings → Save  
+# Type check
+npm run type-check
+```
 
----
+## License
 
-## 🙋 Usage Instructions
-
-### Analyze Any Job
-1. Open job post  
-2. Click extension  
-3. Extract from Current Page  
-4. Analyze Job Match  
-5. Review match % and suggestions  
-
-### Track Applications
-- View history  
-- Update status  
+MIT License
 
 ---
 
-## 🧑‍💻 Developer Setup
-
-### Project Structure
-resume-analyzer-pro/
-└── public/  
-└── src/  
-└── dist/  
-└── screenshots/  
-└── package.json  
-
----
-
-## Local Build
-npm install  
-npm run build  
-
-Load dist/ folder in Chrome as unpacked extension.
-
----
-
-## ⚙️ How It Works
-- PDF.js for resume parsing  
-- Chrome Scripting API for job extraction  
-- Gemini for AI scoring  
-- Local storage for resume + history  
-
----
-
-## 🔐 Security & Privacy
-- All data stays local  
-- API key stored in chrome sync  
-- No external servers or trackers  
-
----
-
-## 🛠️ FAQ
-- Invalid API key → regenerate  
-- Job extraction fails → paste manually  
-- PDF unreadable → use text-based PDF  
-
----
-
-## 🗺️ Roadmap
-- DOCX support  
-- Export as PDF  
-- Multi-language  
-- AI Cover Letter  
-
----
-
-## 🙏 Credits
-- Google Gemini  
-- React + Vite  
-- PDF.js  
-- Chrome Extensions API  
-
----
-
-## 🤝 Contributing
-PRs welcome!
+Made with ❤️ for job seekers everywhere

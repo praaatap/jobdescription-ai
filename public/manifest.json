@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Resume Analyzer Pro",
+  "name": "JobFit AI - Resume Analyzer & Job Matcher",
   "version": "2.0.0",
-  "description": "AI-powered resume analyzer with auto job extraction",
+  "description": "AI-powered resume analyzer with job matching, cover letter generation, and career intelligence",
   "permissions": [
     "storage",
     "activeTab",
@@ -11,6 +11,11 @@
   ],
   "host_permissions": [
     "https://generativelanguage.googleapis.com/*",
+    "https://*.linkedin.com/*",
+    "https://*.indeed.com/*",
+    "https://*.glassdoor.com/*",
+    "https://*.naukri.com/*",
+    "https://*.monster.com/*",
     "https://*/*",
     "http://*/*"
   ],
@@ -20,18 +25,42 @@
   },
   "action": {
     "default_popup": "index.html",
-    "default_icon": "icon.png"
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_title": "JobFit AI - Analyze Job Match"
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"],
-      "run_at": "document_idle"
+      "matches": [
+        "https://*.linkedin.com/*",
+        "https://*.indeed.com/*",
+        "https://*.glassdoor.com/*",
+        "https://*.naukri.com/*",
+        "https://*.monster.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
     }
   ],
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
     "128": "icon128.png"
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icon.png"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
 }
