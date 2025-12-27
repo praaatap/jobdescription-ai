@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    min-height: 560px;
+    min-height: 500px;
     background: var(--bg-primary);
     display: flex;
     flex-direction: column;
@@ -8,7 +8,7 @@
 
 .content {
     flex: 1;
-    padding: 20px;
+    padding: 16px 20px;
     overflow-y: auto;
 }
 
@@ -38,11 +38,7 @@
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 12px;
-}
-
-.sectionTitle svg {
-    color: var(--accent);
+    margin-bottom: 10px;
 }
 
 /* Empty State */
@@ -56,29 +52,29 @@
 }
 
 .emptyIcon {
-    width: 72px;
-    height: 72px;
+    width: 64px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--accent-bg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
     border-radius: 16px;
-    margin-bottom: 20px;
-    color: var(--accent);
+    margin-bottom: 16px;
+    color: var(--text-muted);
 }
 
 .emptyState h3 {
     font-size: 1rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .emptyState p {
     font-size: 0.8125rem;
     color: var(--text-muted);
     margin-bottom: 20px;
-    max-width: 240px;
 }
 
 /* Buttons */
@@ -93,8 +89,8 @@
     font-family: inherit;
     font-size: 0.8125rem;
     font-weight: 600;
-    color: white;
-    background: var(--accent);
+    color: var(--bg-primary);
+    background: var(--text-primary);
     border: none;
     border-radius: var(--radius);
     cursor: pointer;
@@ -103,7 +99,7 @@
 
 .primaryBtn:hover,
 .extractBtn:hover:not(:disabled) {
-    background: var(--accent-light);
+    opacity: 0.9;
 }
 
 .extractBtn {
@@ -111,7 +107,7 @@
 }
 
 .extractBtn:disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
 }
 
@@ -125,8 +121,8 @@
     font-family: inherit;
     font-size: 0.875rem;
     font-weight: 600;
-    color: white;
-    background: var(--accent);
+    color: var(--bg-primary);
+    background: var(--text-primary);
     border: none;
     border-radius: var(--radius);
     cursor: pointer;
@@ -134,7 +130,7 @@
 }
 
 .analyzeBtn:hover:not(:disabled) {
-    background: var(--accent-light);
+    opacity: 0.9;
 }
 
 .analyzeBtn:disabled {
@@ -162,7 +158,7 @@
 }
 
 .saveBtn:hover {
-    filter: brightness(1.1);
+    opacity: 0.9;
 }
 
 .cancelBtn {
@@ -205,33 +201,13 @@
 }
 
 .input:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-bg);
+    border-color: var(--text-muted);
 }
 
 .textarea {
     min-height: 100px;
     resize: vertical;
     line-height: 1.5;
-}
-
-/* Usage Hint */
-.usageHint {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    margin-top: 10px;
-    padding: 8px 12px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--text-muted);
-    background: var(--bg-secondary);
-    border-radius: var(--radius-sm);
-}
-
-.usageHint svg {
-    color: var(--accent);
 }
 
 /* Messages */
@@ -254,21 +230,23 @@
     gap: 10px;
     margin-top: 12px;
     padding: 12px 14px;
-    background: var(--info-bg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
     font-size: 0.8125rem;
     font-weight: 500;
-    color: var(--info);
+    color: var(--text-secondary);
     line-height: 1.5;
 }
 
 .infoBox svg {
     flex-shrink: 0;
     margin-top: 1px;
+    color: var(--text-muted);
 }
 
 .infoBox a {
-    color: var(--accent);
+    color: var(--text-primary);
     font-weight: 600;
     text-decoration: none;
 }
@@ -281,13 +259,47 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 10px;
     padding: 10px 14px;
     background: var(--success-bg);
     border-radius: var(--radius);
     font-size: 0.8125rem;
     font-weight: 500;
     color: var(--success);
+}
+
+/* API Key Section */
+.apiKeySection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.apiKeySection .successBox {
+    margin-top: 0;
+}
+
+.updateKeyBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 16px;
+    font-family: inherit;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.updateKeyBtn:hover {
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+    border-color: var(--border-light);
 }
 
 /* Theme Option */
@@ -317,34 +329,50 @@
 }
 
 .toggleSwitch {
-    width: 44px;
-    height: 24px;
+    width: 40px;
+    height: 22px;
     background: var(--bg-tertiary);
-    border-radius: 12px;
+    border-radius: 11px;
     position: relative;
     transition: all 0.2s ease;
     border: 1px solid var(--border);
 }
 
 .toggleSwitch.active {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: var(--text-primary);
+    border-color: var(--text-primary);
 }
 
 .toggleSlider {
-    width: 18px;
-    height: 18px;
-    background: white;
+    width: 16px;
+    height: 16px;
+    background: var(--text-muted);
     border-radius: 50%;
     position: absolute;
     top: 2px;
     left: 3px;
     transition: all 0.2s ease;
-    box-shadow: var(--shadow);
 }
 
 .toggleSwitch.active .toggleSlider {
-    left: 23px;
+    left: 21px;
+    background: var(--bg-primary);
+}
+
+/* Model Badge */
+.modelBadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 24px;
+    padding: 10px 14px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
 }
 
 /* Spinner */
@@ -362,28 +390,26 @@
 .historyList {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .historyItem {
     background: var(--bg-secondary);
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 14px 16px;
-    cursor: pointer;
+    border-radius: var(--radius);
+    padding: 12px 14px;
     transition: all 0.15s ease;
 }
 
 .historyItem:hover {
     background: var(--bg-tertiary);
-    border-color: var(--border-light);
 }
 
 .historyHeader {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .historyInfo {
@@ -395,7 +421,7 @@
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -404,26 +430,22 @@
 .historyCompany {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--text-muted);
 }
 
-.historyCompany svg {
-    color: var(--accent);
-}
-
 .historyScore {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--text-primary);
 }
 
 .historyMeta {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .historyDate {
@@ -436,7 +458,7 @@
 }
 
 .statusBadge {
-    padding: 4px 10px;
+    padding: 4px 8px;
     font-family: inherit;
     font-size: 0.625rem;
     font-weight: 600;
@@ -446,10 +468,6 @@
     text-transform: uppercase;
     letter-spacing: 0.03em;
     transition: all 0.15s ease;
-}
-
-.statusBadge:hover {
-    filter: brightness(1.1);
 }
 
 .status-pending {
@@ -464,7 +482,7 @@
 
 .status-interview {
     background: var(--info-bg);
-    color: var(--info);
+    color: var(--text-secondary);
 }
 
 .status-rejected {
@@ -473,15 +491,15 @@
 }
 
 .status-offer {
-    background: var(--accent-bg);
-    color: var(--accent);
+    background: var(--success-bg);
+    color: var(--success);
 }
 
 /* Modal */
 .modal {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
@@ -492,7 +510,7 @@
 
 .modalContent {
     width: 90%;
-    max-width: 360px;
+    max-width: 340px;
     background: var(--bg-secondary);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
@@ -508,7 +526,7 @@
 }
 
 .modalHeader svg {
-    color: var(--accent);
+    color: var(--text-muted);
 }
 
 .modalHeader h3 {
@@ -521,7 +539,6 @@
     font-size: 0.8125rem;
     color: var(--text-muted);
     margin-bottom: 20px;
-    line-height: 1.5;
 }
 
 .fileInput {
@@ -538,7 +555,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     padding: 28px 20px;
     background: var(--bg-tertiary);
     border: 2px dashed var(--border-light);
@@ -551,17 +568,8 @@
 }
 
 .fileInputContent:hover {
-    border-color: var(--accent);
-    background: var(--accent-bg);
-}
-
-.fileInputContent svg {
-    color: var(--accent);
-}
-
-.fileHint {
-    font-size: 0.6875rem;
-    color: var(--text-muted);
+    border-color: var(--text-muted);
+    background: var(--bg-elevated);
 }
 
 /* Export Button */
@@ -589,6 +597,23 @@
     color: var(--text-primary);
 }
 
+.promoText {
+    margin-top: 24px;
+    padding: 16px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    text-align: justify;
+}
+
+.promoText strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
 /* Delete Button */
 .deleteBtn {
     padding: 4px 6px;
@@ -604,4 +629,38 @@
     background: var(--error-bg);
     border-color: var(--error);
     color: var(--error);
+}
+
+/* Twitter/Follow Button */
+.twitterBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 24px;
+    padding: 12px 16px;
+    font-family: inherit;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+
+    /* Default (Light Mode) - Black button, White text */
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+}
+
+[data-theme='dark'] .twitterBtn {
+    /* Dark Mode - White button, Black text */
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #ffffff;
+}
+
+.twitterBtn:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
 }

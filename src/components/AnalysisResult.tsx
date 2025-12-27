@@ -8,6 +8,7 @@ interface AnalysisResultProps {
     expandedSections: ExpandedSections;
     onToggleSection: (section: keyof ExpandedSections) => void;
     onCopyKeywords: () => void;
+    onBack: () => void;
 }
 
 const getRecommendationConfig = (recommendation: AnalysisResult['recommendation']) => {
@@ -30,12 +31,17 @@ const getScoreColor = (score: number): string => {
     return '#ef4444';
 };
 
-export const AnalysisResultView: React.FC<AnalysisResultProps> = ({ result, expandedSections, onToggleSection, onCopyKeywords }) => {
+export const AnalysisResultView: React.FC<AnalysisResultProps> = ({ result, expandedSections, onToggleSection, onCopyKeywords, onBack }) => {
     const rec = getRecommendationConfig(result.recommendation);
     const RecIcon = rec.icon;
 
     return (
         <div className={styles.container}>
+            <button className={styles.backBtn} onClick={onBack}>
+                <Icons.ArrowLeft size={16} />
+                <span>Back</span>
+            </button>
+
             <div className={styles.recommendationBadge} style={{ background: rec.bg, color: rec.color }}>
                 <RecIcon size={16} />
                 <span>{rec.text}</span>

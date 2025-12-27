@@ -10,7 +10,6 @@ interface TabNavigationProps {
 
 const tabs: { id: ActiveTab; label: string; icon: keyof typeof Icons }[] = [
     { id: 'job', label: 'Analyze', icon: 'Target' },
-    { id: 'cover-letter', label: 'Cover Letter', icon: 'FileText' },
     { id: 'history', label: 'History', icon: 'History' },
     { id: 'settings', label: 'Settings', icon: 'Settings' },
 ];
