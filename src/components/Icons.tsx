@@ -25,10 +25,12 @@ import {
     Search,
     Menu,
     ArrowRight,
+    ArrowLeft,
     Clock,
     Award,
     Crown,
-    Rocket
+    Rocket,
+    Twitter
 } from 'lucide-react';
 
 export const Icons = {
@@ -58,10 +60,12 @@ export const Icons = {
     Search,
     Menu,
     ArrowRight,
+    ArrowLeft,
     Clock,
     Award,
     Crown,
-    Rocket
+    Rocket,
+    Twitter
 } as const;
 
 export type IconName = keyof typeof Icons;

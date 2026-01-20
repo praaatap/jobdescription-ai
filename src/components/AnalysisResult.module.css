@@ -2,6 +2,26 @@
     animation: fadeIn 0.2s ease;
 }
 
+.backBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.15s ease;
+    font-family: inherit;
+}
+
+.backBtn:hover {
+    color: var(--text-primary);
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;

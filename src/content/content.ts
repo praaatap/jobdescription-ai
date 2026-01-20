@@ -50,7 +50,6 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
 
 // Add floating action button for quick analysis (optional feature)
 function injectFloatingButton(): void {
-    // Check if we're on a job page
     const jobSites = ['linkedin.com', 'indeed.com', 'glassdoor.com', 'naukri.com', 'monster.com'];
     const isJobSite = jobSites.some(site => window.location.hostname.includes(site));
 

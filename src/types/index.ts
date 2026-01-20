@@ -64,4 +64,4 @@ export interface ExpandedSections {
 }
 
 export type Theme = 'dark' | 'light';
-export type ActiveTab = 'job' | 'history' | 'cover-letter' | 'settings';
+export type ActiveTab = 'job' | 'history' | 'settings';

@@ -1,9 +1,10 @@
 .nav {
     display: flex;
+    gap: 4px;
     background: var(--bg-secondary);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius);
     padding: 4px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     border: 1px solid var(--border);
 }
 
@@ -13,14 +14,14 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
-    padding: 10px 8px;
+    padding: 10px 12px;
     font-family: inherit;
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 500;
     color: var(--text-muted);
     background: transparent;
     border: none;
-    border-radius: var(--radius);
+    border-radius: var(--radius-sm);
     cursor: pointer;
     transition: all 0.15s ease;
 }
@@ -31,13 +32,9 @@
 }
 
 .tab.active {
-    color: white;
-    background: var(--accent);
+    color: var(--bg-primary);
+    background: var(--text-primary);
     font-weight: 600;
-}
-
-.tab.hidden {
-    display: none;
 }
 
 .tabIcon {
@@ -54,10 +51,6 @@
     }
 
     .tab {
-        padding: 10px 12px;
+        padding: 10px;
     }
-}
-
-.activeIndicator {
-    display: none;
 }

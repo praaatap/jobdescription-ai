@@ -87,7 +87,7 @@ async function handleAnalysis(msg: { resumeText: string; websiteText: string; jo
         if (!geminiKey) { sendResponse({ success: false, error: "Add API key in Settings" }); return; }
 
         const prompt = createAnalysisPrompt(msg.resumeText, msg.websiteText);
-        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${geminiKey}`, {
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiKey}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -128,7 +128,7 @@ async function handleCoverLetter(req: { resumeText: string; jobDescription: stri
         if (!geminiKey) { sendResponse({ success: false, error: "Add API key" }); return; }
 
         const prompt = createCoverLetterPrompt(req.resumeText, req.jobDescription, req.jobTitle, req.company, req.tone || 'professional', req.length || 'medium');
-        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${geminiKey}`, {
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiKey}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { temperature: 0.8 } })
