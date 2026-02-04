@@ -39,7 +39,13 @@ Return ONLY valid JSON:
   "improvements": ["improvement1", "improvement2", "improvement3"],
   "missingKeywords": ["keyword1", "keyword2", "keyword3"],
   "atsWarnings": ["warning1", "warning2"],
-  "interviewTips": ["tip1", "tip2", "tip3"]
+  "interviewTips": ["tip1", "tip2", "tip3"],
+  "salaryEstimation": {
+    "range": "<e.g. $80k - $120k or 'Not mentioned'>",
+    "explanation": "<brief rationale>"
+  },
+  "atsScore": <0-100 score on resume parseability/formatting>,
+  "atsIssues": ["formatting issue 1", "structure issue 2"]
 }
 
 Guidelines:

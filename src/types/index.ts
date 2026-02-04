@@ -10,6 +10,38 @@ export interface AnalysisResult {
     atsWarnings: string[];
     interviewTips?: string[];
     skillsToHighlight?: string[];
+    salaryEstimation?: {
+        range: string;
+        explanation: string;
+    };
+    atsScore?: number;
+    atsIssues?: string[];
+}
+
+// Resume Management Types
+export interface Resume {
+    id: string;
+    name: string;
+    text: string;
+    fileName: string;
+    uploadedAt: number;
+    isActive: boolean;
+}
+
+export interface ResumeMetadata {
+    id: string;
+    name: string;
+    fileName: string;
+    uploadedAt: number;
+    fileSize: number;
+}
+
+// Application Tracker Types
+export interface Reminder {
+    id: string;
+    type: 'follow-up' | 'interview' | 'custom';
+    date: number;
+    message?: string;
 }
 
 export interface JobHistoryItem {
@@ -21,8 +53,14 @@ export interface JobHistoryItem {
     url: string;
     status: 'pending' | 'applied' | 'interview' | 'rejected' | 'offer';
     fullAnalysis: AnalysisResult;
+    resumeId?: string; // Track which resume was used
+    applicationDate?: number;
+    interviewDate?: number;
+    notes?: string;
+    reminders?: Reminder[];
 }
 
+// Legacy support - keep for backward compatibility
 export interface CachedResume {
     text: string;
     fileName: string;
@@ -61,7 +99,8 @@ export interface ExpandedSections {
     ats: boolean;
     recommendation: boolean;
     interviewTips: boolean;
+    salary: boolean;
 }
 
 export type Theme = 'dark' | 'light';
-export type ActiveTab = 'job' | 'history' | 'settings';
+export type ActiveTab = 'job' | 'resumes' | 'tracker' | 'history' | 'settings';

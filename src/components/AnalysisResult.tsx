@@ -60,6 +60,17 @@ export const AnalysisResultView: React.FC<AnalysisResultProps> = ({ result, expa
             <div className={styles.summary}><p>{result.summary}</p></div>
 
             <div className={styles.sections}>
+                {result.salaryEstimation && (
+                    <Section
+                        title="Salary Estimate"
+                        items={[`Estimated Range: ${result.salaryEstimation.range}`, result.salaryEstimation.explanation]}
+                        expanded={expandedSections.salary}
+                        onToggle={() => onToggleSection('salary')}
+                        variant="info"
+                        icon={Icons.DollarSign}
+                    />
+                )}
+
                 {result.recommendationReasons?.length > 0 && (
                     <Section title="AI Recommendation" items={result.recommendationReasons} expanded={expandedSections.recommendation} onToggle={() => onToggleSection('recommendation')} variant="primary" icon={Icons.Sparkles} />
                 )}
@@ -72,9 +83,22 @@ export const AnalysisResultView: React.FC<AnalysisResultProps> = ({ result, expa
                 {result.missingKeywords?.length > 0 && (
                     <Section title="Missing Keywords" items={result.missingKeywords} expanded={expandedSections.keywords} onToggle={() => onToggleSection('keywords')} variant="error" icon={Icons.Target} action={<button className={styles.copyBtn} onClick={onCopyKeywords}><Icons.Copy size={12} /> Copy</button>} />
                 )}
-                {result.atsWarnings?.length > 0 && (
-                    <Section title="ATS Tips" items={result.atsWarnings} expanded={expandedSections.ats} onToggle={() => onToggleSection('ats')} variant="info" icon={Icons.AlertTriangle} />
+
+                {(result.atsWarnings?.length > 0 || result.atsScore !== undefined) && (
+                    <Section
+                        title={`ATS Analysis ${result.atsScore !== undefined ? `(${result.atsScore}/100)` : ''}`}
+                        items={[
+                            ...(result.atsScore !== undefined ? [`ATS Score: ${result.atsScore}/100`] : []),
+                            ...(result.atsIssues || []),
+                            ...(result.atsWarnings || [])
+                        ]}
+                        expanded={expandedSections.ats}
+                        onToggle={() => onToggleSection('ats')}
+                        variant="warning"
+                        icon={Icons.FileSearch}
+                    />
                 )}
+
                 {result.interviewTips && result.interviewTips.length > 0 && (
                     <Section title="Interview Tips" items={result.interviewTips} expanded={expandedSections.interviewTips} onToggle={() => onToggleSection('interviewTips')} variant="primary" icon={Icons.Award} />
                 )}

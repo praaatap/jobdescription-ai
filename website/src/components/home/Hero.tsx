@@ -70,14 +70,14 @@ const ExtensionPreview = () => {
                     </div>
                     <div className="space-y-2.5">
                         <div className="bg-white/5 border border-white/10 p-3.5 rounded-xl text-[10px] font-bold text-white shadow-inner">
-                            Flutter Developer job at Stimuler - Instahyre
+                            Senior Software Engineer
                         </div>
                         <div className="bg-white/5 border border-white/10 p-3.5 rounded-xl text-[10px] font-bold text-zinc-600">
                             Company
                         </div>
                         <div className="bg-white/[0.02] border border-white/5 p-3.5 rounded-xl text-[10px] leading-relaxed text-zinc-400 font-medium h-[80px] overflow-hidden relative">
-                            <div className="mb-1">IH</div>
-                            <div className="mb-1">Instahyre</div>
+                            <div className="mb-1">TC</div>
+                            <div className="mb-1">TechCorp Inc.</div>
                             <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#09090b] to-transparent" />
                         </div>
                     </div>

@@ -6,10 +6,19 @@
     padding: 4px;
     margin-bottom: 16px;
     border: 1px solid var(--border);
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.nav::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari/Opera */
 }
 
 .tab {
-    flex: 1;
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,14 +52,24 @@
 
 .tabLabel {
     white-space: nowrap;
+    font-size: 0.75rem;
 }
 
-@media (max-width: 380px) {
-    .tabLabel {
-        display: none;
+/* Ensure at least a decent amount is visible */
+@media (max-width: 350px) {
+    .tab {
+        padding: 8px 10px;
+        gap: 4px;
     }
 
-    .tab {
-        padding: 10px;
+    .tabLabel {
+        font-size: 0.7rem;
     }
+}
+
+.tab.active {
+    color: var(--bg-primary);
+    background: var(--text-primary);
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }

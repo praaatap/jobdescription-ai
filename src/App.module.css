@@ -1,15 +1,23 @@
 .container {
     width: 100%;
-    min-height: 500px;
+    height: 100%;
     background: var(--bg-primary);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .content {
     flex: 1;
     padding: 16px 20px;
     overflow-y: auto;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari/Opera */
 }
 
 .tabContent {
