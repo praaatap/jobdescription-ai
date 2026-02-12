@@ -13,6 +13,13 @@ AI-powered Chrome extension that analyzes your resume against job descriptions u
 - ✉️ **Cover Letter Generator** - Generate tailored cover letters for each application
 - 📊 **Job History** - Track all your analyzed jobs and their statuses
 
+## Images
+<img width="727" height="962" alt="Screenshot 2025-12-27 221603" src="https://github.com/user-attachments/assets/ece195ce-3d00-49b2-86b1-6a15eac27131" />
+<img width="729" height="964" alt="Screenshot 2025-12-27 221653" src="https://github.com/user-attachments/assets/766c3c36-5b0a-43b0-afe0-c3943bbd4aec" />
+<img width="729" height="964" alt="Screenshot 2025-12-27 221639" src="https://github.com/user-attachments/assets/a0b9ed20-78c5-4401-9c4e-701633865775" />
+<img width="732" height="862" alt="image" src="https://github.com/user-attachments/assets/307dba3c-930f-4cb6-be54-57dcf958547e" />
+<img width="725" height="970" alt="image" src="https://github.com/user-attachments/assets/12734ca0-eebb-4b5c-9b0a-90afa2260012" />
+
 ## Installation
 
 ### From Chrome Web Store
