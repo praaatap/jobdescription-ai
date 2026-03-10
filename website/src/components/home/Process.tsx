@@ -3,53 +3,53 @@ import { Key, Upload, Cpu, Shield, Zap, Brain } from 'lucide-react';
 
 const Process = () => {
     return (
-        <section id="process" className="py-40 bg-black relative overflow-hidden">
-            {/* Visual Continuity Lines */}
-            <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-emerald-500/20 via-transparent to-transparent" />
-            <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-emerald-500/10 to-transparent" />
+        <section id="process" className="py-32 bg-black relative overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-1/4 left-[-10%] w-[60%] h-[60%] bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.05),transparent_50%)] blur-[120px]" />
+            </div>
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="flex flex-col lg:flex-row gap-20 items-start mb-32">
+                <div className="flex flex-col lg:flex-row gap-16 items-start mb-24">
                     <div className="lg:w-1/2">
                         <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-emerald-500 font-bold tracking-[0.3em] text-xs uppercase mb-8"
+                            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sky-500/20 bg-sky-500/10 mb-8 w-fit"
                         >
-                            Implementation Flow
+                            <span className="text-[11px] font-semibold text-sky-400">Workflow</span>
                         </motion.div>
-                        <h2 className="text-6xl md:text-8xl font-bold text-white mb-10 tracking-tight italic">
-                            Simple. <br />
-                            <span className="text-zinc-700 not-italic">Powerful.</span> <br />
-                            Secure.
+                        <h2 className="text-4xl md:text-[64px] font-bold text-white leading-[1.05] tracking-tight mb-6">
+                            Simple. Powerful. <br />
+                            <span className="text-zinc-500">Secure.</span>
                         </h2>
                     </div>
-                    <div className="lg:w-1/2 pt-10">
-                        <p className="text-zinc-500 text-2xl leading-relaxed font-light">
+                    <div className="lg:w-1/2 lg:pt-14">
+                        <p className="text-zinc-400 text-lg leading-relaxed max-w-md">
                             We've eliminated the friction of the modern job hunt. No complex dashboards, no cloud delays. Just intelligence where you need it most.
                         </p>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {[
                         {
-                            icon: <Key className="w-8 h-8" />,
-                            title: "Initialize Neural Core",
-                            description: "Securely input your Gemini Pro API key to enable analysis. Your data remains in your local vault.",
+                            icon: <Key className="w-6 h-6" />,
+                            title: "Initialize Core",
+                            description: "Input your Gemini API key to enable analysis. Your credentials remain secure in local storage.",
                             step: "01"
                         },
                         {
-                            icon: <Upload className="w-8 h-8" />,
-                            title: "Ingest Resume DNA",
-                            description: "Upload your PDF. Our engine extracts structure and skills with sub-pixel precision.",
+                            icon: <Upload className="w-6 h-6" />,
+                            title: "Add Profile",
+                            description: "Upload your resume. Our engine extracts structure and skills immediately.",
                             step: "02"
                         },
                         {
-                            icon: <Cpu className="w-8 h-8" />,
-                            title: "Real-time Synthesis",
-                            description: "Browse any portal. We map your potential to the job requirements in 60ms.",
+                            icon: <Cpu className="w-6 h-6" />,
+                            title: "Instant Synthesis",
+                            description: "Browse any portal. We map your potential to job requirements in milliseconds.",
                             step: "03"
                         }
                     ].map((item, idx) => (
@@ -58,20 +58,20 @@ const Process = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: idx * 0.2 }}
-                            className="relative"
+                            transition={{ delay: idx * 0.1 }}
+                            className="relative group bg-[#09090b] border border-white/[0.05] p-8 rounded-[32px] hover:border-white/10 transition-colors"
                         >
-                            <div className="text-[120px] font-black leading-none text-white/[0.03] absolute -top-20 -left-4 pointer-events-none tracking-tighter">
+                            <div className="text-[80px] font-bold leading-none text-white/[0.02] absolute top-4 right-6 pointer-events-none tracking-tighter transition-all group-hover:text-white/[0.04]">
                                 {item.step}
                             </div>
                             <div className="relative z-10">
-                                <div className="w-20 h-20 bg-[#09090b] border border-white/10 rounded-3xl flex items-center justify-center mb-10 shadow-2xl group">
-                                    <div className="text-emerald-500 group-hover:scale-110 transition-transform">
+                                <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center mb-8 shadow-sm">
+                                    <div className="text-sky-400">
                                         {item.icon}
                                     </div>
                                 </div>
-                                <h3 className="text-3xl font-bold text-white mb-6 tracking-tight">{item.title}</h3>
-                                <p className="text-zinc-500 text-xl leading-relaxed font-medium">
+                                <h3 className="text-2xl font-semibold text-white mb-4 tracking-tight">{item.title}</h3>
+                                <p className="text-zinc-400 text-base leading-relaxed">
                                     {item.description}
                                 </p>
                             </div>
@@ -80,32 +80,32 @@ const Process = () => {
                 </div>
 
                 {/* Trust Section */}
-                <div className="mt-40 pt-20 border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div className="flex gap-6 items-start">
-                        <div className="p-3 rounded-2xl bg-emerald-500/5">
-                            <Shield className="w-6 h-6 text-emerald-500" />
+                <div className="mt-32 pt-16 border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div className="flex gap-5 items-start bg-white/[0.01] p-6 rounded-3xl border border-white/5">
+                        <div className="p-3 rounded-xl bg-sky-500/10 border border-sky-500/20">
+                            <Shield className="w-5 h-5 text-sky-400" />
                         </div>
                         <div>
-                            <div className="text-white font-bold mb-2">Local-First Privacy</div>
+                            <div className="text-white font-semibold mb-1 text-sm">Local-First Privacy</div>
                             <p className="text-sm text-zinc-500 leading-relaxed">No tracking, no cloud storage. Just your data, on your terms.</p>
                         </div>
                     </div>
-                    <div className="flex gap-6 items-start">
-                        <div className="p-3 rounded-2xl bg-zinc-900">
-                            <Zap className="w-6 h-6 text-white" />
+                    <div className="flex gap-5 items-start bg-white/[0.01] p-6 rounded-3xl border border-white/5">
+                        <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                            <Zap className="w-5 h-5 text-zinc-300" />
                         </div>
                         <div>
-                            <div className="text-white font-bold mb-2">Instant Response</div>
+                            <div className="text-white font-semibold mb-1 text-sm">Instant Response</div>
                             <p className="text-sm text-zinc-500 leading-relaxed">Sub-60ms inference time for seamless job board interaction.</p>
                         </div>
                     </div>
-                    <div className="flex gap-6 items-start">
-                        <div className="p-3 rounded-2xl bg-zinc-900 text-emerald-500">
-                            <Brain className="w-6 h-6" />
+                    <div className="flex gap-5 items-start bg-white/[0.01] p-6 rounded-3xl border border-white/5">
+                        <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-sky-400">
+                            <Brain className="w-5 h-5" />
                         </div>
                         <div>
-                            <div className="text-white font-bold mb-2">Gemini Pro 1.5</div>
-                            <p className="text-sm text-zinc-500 leading-relaxed">Leveraging the world's most capable AI for career analysis.</p>
+                            <div className="text-white font-semibold mb-1 text-sm">Advanced LLMs</div>
+                            <p className="text-sm text-zinc-500 leading-relaxed">Leveraging capable local AI models for career analysis.</p>
                         </div>
                     </div>
                 </div>

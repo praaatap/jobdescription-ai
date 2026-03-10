@@ -1,91 +1,70 @@
 import { motion } from 'framer-motion';
-import { Settings, History, Brain, Terminal, Sun, Download, FileText, Check } from 'lucide-react';
+import { Settings, History, Brain, Target, ArrowRight, Download, FileText, Check } from 'lucide-react';
 
 const ExtensionPreview = () => {
     return (
-        <div className="w-full max-w-[380px] bg-[#09090b] rounded-[24px] border border-white/10 shadow-2xl overflow-hidden font-sans text-left relative transform transition-all hover:scale-[1.02] duration-500">
+        <div className="w-full max-w-[380px] bg-[#09090b] rounded-[24px] border border-white/10 shadow-2xl overflow-hidden font-sans text-left relative transform transition-all hover:scale-[1.02] duration-500 flex flex-col items-center">
             {/* Header */}
-            <div className="p-5 border-b border-white/5 flex items-center justify-between bg-black/40 backdrop-blur-md">
+            <div className="w-full p-4 flex items-center justify-between border-b border-white/5 bg-black/40 backdrop-blur-md">
                 <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                        <div className="w-5 h-5 rounded-full border-2 border-black flex items-center justify-center">
-                            <div className="w-1.5 h-1.5 rounded-full bg-black" />
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-white to-zinc-300 flex items-center justify-center p-[1px]">
+                        <div className="w-full h-full rounded-[7px] bg-black flex items-center justify-center">
+                            <div className="w-3 h-3 rounded-full border border-white flex items-center justify-center">
+                                <div className="w-1 h-1 rounded-full bg-sky-400" />
+                            </div>
                         </div>
                     </div>
                     <div>
-                        <h4 className="text-white font-bold leading-none mb-1 text-sm">JobFit AI</h4>
-                        <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Smart Career Intelligence</p>
+                        <h4 className="text-white font-medium leading-none mb-0.5 text-sm">JobFit AI</h4>
+                        <p className="text-[11px] text-zinc-500 font-medium">Smart Matcher</p>
                     </div>
                 </div>
-                <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white transition-colors cursor-pointer">
-                    <Sun className="w-3.5 h-3.5" />
+                <div className="w-8 h-8 rounded-md hover:bg-white/5 flex items-center justify-center text-zinc-400 hover:text-white transition-colors cursor-pointer">
+                    <Settings className="w-4 h-4" />
                 </div>
             </div>
 
             {/* Content Area */}
-            <div className="p-5">
+            <div className="w-full p-5 flex flex-col gap-4">
                 {/* Active File Badge */}
-                <div className="bg-white/5 border border-white/10 p-2.5 rounded-xl flex items-center justify-between mb-5 group hover:bg-white/10 transition-colors">
-                    <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/10">
-                            <FileText className="w-3.5 h-3.5 text-zinc-300" />
+                <div className="bg-white/[0.03] border border-white/10 p-3 rounded-xl flex items-center justify-between group hover:bg-white/[0.05] transition-colors">
+                    <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-md bg-sky-500/10 flex items-center justify-center">
+                            <FileText className="w-4 h-4 text-sky-400" />
                         </div>
-                        <div>
-                            <div className="text-white font-bold text-xs truncate max-w-[100px]">pratapsinghsis...</div>
-                            <div className="text-[9px] text-zinc-500 font-bold uppercase tracking-widest">Active</div>
+                        <div className="flex flex-col">
+                            <span className="text-white font-medium text-sm">My_Resume_2025.pdf</span>
+                            <span className="text-[11px] text-zinc-500">Active Profile</span>
                         </div>
                     </div>
-                    <div className="flex gap-1.5">
-                        <button className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[8px] font-bold text-zinc-400 uppercase tracking-tighter hover:text-white transition-colors">Update</button>
-                    </div>
-                </div>
-
-                {/* Tabs */}
-                <div className="grid grid-cols-3 gap-1 bg-white/[0.03] p-1 rounded-xl mb-5 border border-white/5">
-                    <button className="flex items-center justify-center gap-1.5 py-2 bg-white text-black rounded-lg text-[10px] font-bold shadow-lg shadow-white/5 transition-all active:scale-95">
-                        <Brain className="w-3 h-3" /> Analyze
-                    </button>
-                    <button className="flex items-center justify-center gap-1.5 py-2 text-zinc-500 text-[10px] font-bold hover:text-zinc-300 transition-colors">
-                        <History className="w-3 h-3" /> History
-                    </button>
-                    <button className="flex items-center justify-center gap-1.5 py-2 text-zinc-500 text-[10px] font-bold hover:text-zinc-300 transition-colors">
-                        <Settings className="w-3 h-3" /> Settings
-                    </button>
+                    <span className="px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 text-[10px] font-medium border border-green-500/20">Ready</span>
                 </div>
 
                 {/* EXTRACT JOB Section */}
-                <div className="mb-5">
-                    <div className="flex items-center gap-2 text-[9px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-2.5">
-                        <Download className="w-2.5 h-2.5" /> Extract Job
-                    </div>
-                    <button className="w-full py-3 bg-white text-black rounded-xl text-[11px] font-bold flex items-center justify-center gap-2 hover:bg-zinc-200 transition-all shadow-xl active:scale-98">
-                        <Download className="w-3.5 h-3.5" /> Extract from Current Page
-                    </button>
-                </div>
+                <button className="w-full py-3.5 bg-white text-black rounded-xl text-sm font-semibold flex items-center justify-center gap-2 hover:bg-zinc-200 transition-all shadow-xl active:scale-[0.98]">
+                    <Target className="w-4 h-4" /> Analyze Current Job Posting
+                </button>
 
-                {/* JOB DETAILS Section */}
-                <div>
-                    <div className="flex items-center gap-2 text-[9px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-2.5">
-                        <FileText className="w-2.5 h-2.5" /> Job Details
+                {/* Insights / Stats Preview */}
+                <div className="grid grid-cols-2 gap-3 mt-2">
+                    <div className="bg-white/[0.02] border border-white/5 p-3 rounded-xl flex flex-col gap-1">
+                        <span className="text-[11px] text-zinc-500">Match Score</span>
+                        <div className="flex items-center gap-2">
+                            <span className="text-2xl font-semibold text-white">92%</span>
+                            <Brain className="w-4 h-4 text-sky-400" />
+                        </div>
                     </div>
-                    <div className="space-y-2.5">
-                        <div className="bg-white/5 border border-white/10 p-3.5 rounded-xl text-[10px] font-bold text-white shadow-inner">
-                            Senior Software Engineer
-                        </div>
-                        <div className="bg-white/5 border border-white/10 p-3.5 rounded-xl text-[10px] font-bold text-zinc-600">
-                            Company
-                        </div>
-                        <div className="bg-white/[0.02] border border-white/5 p-3.5 rounded-xl text-[10px] leading-relaxed text-zinc-400 font-medium h-[80px] overflow-hidden relative">
-                            <div className="mb-1">TC</div>
-                            <div className="mb-1">TechCorp Inc.</div>
-                            <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#09090b] to-transparent" />
+                    <div className="bg-white/[0.02] border border-white/5 p-3 rounded-xl flex flex-col gap-1">
+                        <span className="text-[11px] text-zinc-500">Missing keywords</span>
+                        <div className="flex items-center gap-2">
+                            <span className="text-2xl font-semibold text-white">3</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* Glass Overlays */}
-            <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/[0.02] to-transparent" />
+            <div className="absolute inset-0 pointer-events-none rounded-[24px] border border-white/10" />
         </div>
     );
 };
@@ -95,22 +74,21 @@ const Hero = () => {
         <section className="relative min-h-[90vh] w-full flex items-center justify-center overflow-hidden bg-black pt-32 pb-20">
             {/* Background Elements */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute inset-0 bg-grid opacity-[0.15]" />
-                <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[80%] h-[60%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03),transparent_70%)] blur-[120px]" />
+                <div className="absolute top-[-20%] right-[-10%] w-[80%] h-[80%] bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.08),transparent_50%)] blur-[100px]" />
+                <div className="absolute bottom-[-20%] left-[-10%] w-[60%] h-[60%] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03),transparent_50%)] blur-[100px]" />
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div className="lg:col-span-7 flex flex-col justify-center">
                         <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-8 w-fit"
+                            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sky-500/20 bg-sky-500/10 mb-8 w-fit"
                         >
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
-                            <span className="text-[10px] font-bold tracking-[0.2em] text-zinc-400 uppercase">
-                                Neural Career Intelligence v2.0
+                            <span className="text-[11px] font-semibold text-sky-400">
+                                JobFit AI Extension v2.0
                             </span>
                         </motion.div>
 
@@ -118,19 +96,19 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.1 }}
-                            className="text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight mb-8 text-white"
+                            className="text-5xl md:text-[80px] font-bold leading-[1.05] tracking-tight mb-6 text-white"
                         >
-                            The intelligence layer <br />
-                            for your <span className="text-zinc-500">career.</span>
+                            Beat the ATS.<br />
+                            Land the <span className="text-zinc-500">interview.</span>
                         </motion.h1>
 
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-lg text-zinc-400 mb-10 max-w-lg leading-relaxed font-light"
+                            className="text-lg md:text-xl text-zinc-400 mb-10 max-w-lg leading-relaxed"
                         >
-                            JobFit AI bridges the gap between your unique experience and complex requirements using local-first neural matching.
+                            Instantly match your resume with any job posting. Stop guessing what recruiters want, and start applying with confidence.
                         </motion.p>
 
                         <motion.div
@@ -139,18 +117,21 @@ const Hero = () => {
                             transition={{ duration: 0.8, delay: 0.3 }}
                             className="flex flex-col sm:flex-row gap-4 items-start"
                         >
-                            <button className="px-8 py-4 bg-white text-black rounded-xl font-bold text-sm hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all active:scale-95">
-                                Start Free Analysis
+                            <button className="px-8 py-4 bg-white text-black rounded-full font-semibold text-sm hover:scale-[1.02] transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+                                Add to Chrome <ArrowRight className="w-4 h-4" />
                             </button>
-                            <button className="px-8 py-4 bg-transparent border border-white/10 text-white rounded-xl font-bold text-sm hover:bg-white/5 transition-all active:scale-95 flex items-center justify-center gap-2 group">
-                                <Terminal className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" />
-                                <span>View Documentation</span>
+                            <button className="px-8 py-4 bg-zinc-900 border border-white/10 text-white rounded-full font-semibold text-sm hover:bg-zinc-800 transition-all active:scale-[0.98]">
+                                How it works
                             </button>
                         </motion.div>
 
-                        <div className="mt-12 flex items-center gap-4 text-[10px] text-zinc-600 font-bold uppercase tracking-widest">
-                            <span>Trusted by engineers at</span>
-                            <div className="h-px flex-1 bg-white/5" />
+                        <div className="mt-12 flex items-center gap-4 text-xs text-zinc-500 font-medium">
+                            <div className="flex -space-x-2">
+                                {[1, 2, 3, 4].map((i) => (
+                                    <div key={i} className="w-6 h-6 rounded-full border-2 border-black bg-zinc-800" />
+                                ))}
+                            </div>
+                            <span>Join 10,000+ job seekers</span>
                         </div>
                     </div>
 
@@ -161,9 +142,9 @@ const Hero = () => {
                         className="lg:col-span-5 relative hidden lg:flex justify-center items-center"
                     >
                         {/* More subtle decorative backdrop */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-transparent blur-[100px] opacity-40" />
+                        <div className="absolute inset-0 bg-sky-500/10 blur-[100px] rounded-full opacity-50" />
 
-                        <div className="relative z-10 product-shadow hover:rotate-1 transition-transform duration-700 ease-out">
+                        <div className="relative z-10 product-shadow">
                             <ExtensionPreview />
                         </div>
 
@@ -171,15 +152,15 @@ const Hero = () => {
                         <motion.div
                             animate={{ y: [0, -8, 0] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -right-4 top-10 glass px-4 py-3 rounded-2xl z-20 border border-white/10 shadow-xl bg-black/60 backdrop-blur-md"
+                            className="absolute -right-4 top-10 glass px-4 py-3 rounded-2xl z-20 border border-white/10 shadow-xl bg-black/80 backdrop-blur-md"
                         >
                             <div className="flex items-center gap-3">
-                                <div className="p-2 bg-[#10b981]/10 rounded-lg">
-                                    <Brain className="w-4 h-4 text-[#10b981]" />
+                                <div className="p-2 bg-sky-500/10 rounded-lg">
+                                    <Check className="w-4 h-4 text-sky-400" />
                                 </div>
                                 <div>
-                                    <div className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Match Score</div>
-                                    <div className="text-sm font-bold text-white leading-none">98.4%</div>
+                                    <div className="text-[10px] font-medium text-zinc-400">Perfect Match</div>
+                                    <div className="text-sm font-semibold text-white leading-none mt-0.5">Recommended</div>
                                 </div>
                             </div>
                         </motion.div>
@@ -187,15 +168,17 @@ const Hero = () => {
                         <motion.div
                             animate={{ y: [0, 8, 0] }}
                             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                            className="absolute -left-8 bottom-20 glass px-4 py-3 rounded-2xl z-20 border border-white/10 shadow-xl bg-black/60 backdrop-blur-md"
+                            className="absolute -left-10 bottom-24 glass px-4 py-3 rounded-2xl z-20 border border-white/10 shadow-xl bg-black/80 backdrop-blur-md"
                         >
                             <div className="flex items-center gap-3">
-                                <div className="p-2 bg-white/5 rounded-lg">
-                                    <Check className="w-4 h-4 text-emerald-500" />
+                                <div className="p-2 bg-white/5 rounded-lg text-white font-mono text-xs font-bold w-8 h-8 flex justify-center items-center">
+                                    ATS
                                 </div>
-                                <div>
-                                    <div className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Optimize</div>
-                                    <div className="text-sm font-bold text-white leading-none">Ready</div>
+                                <div className="flex flex-col gap-1">
+                                    <div className="w-20 h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                        <div className="w-[90%] h-full bg-sky-400 rounded-full" />
+                                    </div>
+                                    <div className="text-[10px] font-medium text-zinc-400">Parsing Resume</div>
                                 </div>
                             </div>
                         </motion.div>

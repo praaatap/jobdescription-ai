@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronRight, LayoutGrid, Zap, Shield, Search } from 'lucide-react';
+import { ChevronRight, LayoutGrid, Zap, Shield } from 'lucide-react';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -23,13 +23,13 @@ const Navbar = () => {
     }, []);
 
     const navItems = [
-        { name: 'Features', icon: <LayoutGrid className="w-3.5 h-3.5" />, href: '#features' },
-        { name: 'Process', icon: <Zap className="w-3.5 h-3.5" />, href: '#process' },
-        { name: 'Pricing', icon: <Shield className="w-3.5 h-3.5" />, href: '#pricing' },
+        { name: 'Features', icon: <LayoutGrid className="w-4 h-4" />, href: '#features' },
+        { name: 'Process', icon: <Zap className="w-4 h-4" />, href: '#process' },
+        { name: 'Pricing', icon: <Shield className="w-4 h-4" />, href: '#pricing' },
     ];
 
     return (
-        <div className="fixed top-0 left-0 right-0 z-[100] flex justify-center px-4 pointer-events-none">
+        <div className="fixed top-0 left-0 right-0 z-[100] flex justify-center px-4 pointer-events-none mt-2">
             <motion.header
                 style={{
                     width,
@@ -38,74 +38,51 @@ const Navbar = () => {
                     borderRadius,
                     borderColor,
                 }}
-                className={`flex items-center justify-between h-20 transition-all duration-500 glass-container pointer-events-auto border ${isScrolled
-                        ? 'bg-black/40 backdrop-blur-xl px-8 shadow-[0_0_80px_-20px_rgba(0,0,0,0.5)]'
-                        : 'bg-transparent px-6'
+                className={`flex items-center justify-between h-16 transition-all duration-500 pointer-events-auto border border-transparent ${isScrolled
+                    ? 'bg-black/60 backdrop-blur-2xl px-6 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]'
+                    : 'bg-transparent px-6'
                     }`}
             >
                 {/* Logo Area */}
                 <div className="flex items-center gap-3 cursor-pointer group">
-                    <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center group-hover:rotate-6 group-active:scale-90 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-                        <div className="w-6 h-6 rounded-full border-2 border-black flex items-center justify-center">
-                            <div className="w-1.5 h-1.5 rounded-full bg-black" />
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-white to-zinc-300 flex items-center justify-center p-[1px] shadow-sm">
+                        <div className="w-full h-full bg-black rounded-[7px] flex items-center justify-center">
+                            <div className="w-3 h-3 rounded-full border-[1.5px] border-white flex items-center justify-center">
+                                <div className="w-1 h-1 rounded-full bg-sky-400" />
+                            </div>
                         </div>
                     </div>
-                    <div className="flex flex-col">
-                        <span className="font-black text-2xl tracking-tighter text-white leading-tight">
-                            JOBFIT<span className="text-emerald-500">.AI</span>
-                        </span>
-                        <div className="flex items-center gap-1.5">
-                            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                            <span className="text-[9px] font-bold text-zinc-500 tracking-[0.25em] uppercase">
-                                Neural OPS
-                            </span>
-                        </div>
-                    </div>
+                    <span className="font-bold text-lg tracking-tight text-white leading-tight">
+                        JobFit AI
+                    </span>
                 </div>
 
-                {/* Central Navigation Dock */}
-                <nav className="hidden md:flex items-center bg-white/5 border border-white/10 rounded-2xl p-1.5 backdrop-blur-sm relative">
+                {/* Central Navigation */}
+                <nav className="hidden md:flex items-center gap-2">
                     {navItems.map((item) => (
                         <a
                             key={item.name}
                             href={item.href}
                             onMouseEnter={() => setHoveredItem(item.name)}
                             onMouseLeave={() => setHoveredItem(null)}
-                            className="relative px-6 py-2.5 flex items-center gap-2.5 group group-active:scale-95 transition-transform"
+                            className="relative px-4 py-2 flex items-center gap-2 transition-all rounded-full"
                         >
-                            <span className={`text-zinc-500 group-hover:text-emerald-500 transition-colors ${hoveredItem === item.name ? 'scale-110' : 'scale-100'}`}>
-                                {item.icon}
-                            </span>
-                            <span className={`text-[11px] font-black uppercase tracking-[0.2em] transition-all ${hoveredItem === item.name ? 'text-white translate-x-0.5' : 'text-zinc-500'
+                            <span className={`text-sm font-medium transition-colors ${hoveredItem === item.name ? 'text-white' : 'text-zinc-400'
                                 }`}>
                                 {item.name}
                             </span>
-
-                            {hoveredItem === item.name && (
-                                <motion.div
-                                    layoutId="nav-bg"
-                                    className="absolute inset-0 bg-white/5 rounded-xl -z-10"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                />
-                            )}
                         </a>
                     ))}
                 </nav>
 
                 {/* Action Area */}
                 <div className="flex items-center gap-4">
-                    <div className="hidden lg:flex items-center px-4 py-2 bg-white/5 border border-white/5 rounded-xl text-zinc-500 hover:text-white hover:border-white/10 transition-all group cursor-pointer active:scale-95">
-                        <Search className="w-4 h-4 mr-2" />
-                        <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Docs</span>
+                    <div className="hidden lg:flex items-center text-sm font-medium text-zinc-400 hover:text-white transition-colors cursor-pointer">
+                        Documentation
                     </div>
 
-                    <button className="relative group overflow-hidden bg-white text-black px-8 h-12 rounded-2xl font-black text-[11px] uppercase tracking-[0.2em] transition-all hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] active:scale-95">
-                        <div className="relative z-10 flex items-center gap-2">
-                            Install <ChevronRight className="w-3.5 h-3.5 rotate-[-45deg] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                        </div>
-                        <div className="absolute inset-0 bg-emerald-500 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out -z-0" />
+                    <button className="flex items-center gap-2 bg-white text-black px-5 h-9 rounded-full font-semibold text-sm transition-all hover:scale-[1.02] active:scale-[0.98]">
+                        Install Extension <ChevronRight className="w-4 h-4" />
                     </button>
                 </div>
             </motion.header>
