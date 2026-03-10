@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Settings, History, Brain, Target, ArrowRight, Download, FileText, Check } from 'lucide-react';
+import { Settings, Brain, Target, ArrowRight, FileText, Check } from 'lucide-react';
 
 const ExtensionPreview = () => {
     return (
